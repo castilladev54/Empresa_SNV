@@ -1,0 +1,331 @@
+/* ==================================== */
+/* 1. RESET Y VARIABLES GLOBALES (THEME) */
+/* ==================================== */
+* {
+  /* Reset básico */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Modelo de caja moderno */
+}
+
+:root {
+  /* Colores Primarios y de Interacción */
+  --primary: #1173d4; /* Azul principal */
+  --primary-dark: #0a3d66; /* Azul oscuro para fondos/sombras */
+  --primary-hover: #0d5ba8; /* Azul para estado hover */
+  --primary-light: #09f; /* Azul claro/acento */
+
+  /* Colores de Fondo y Texto */
+  --background: #050608; /* Fondo principal oscuro */
+  --text-primary: #ffffff; /* Texto principal (claro) */
+  --text-secondary: #cbd5e1; /* Texto secundario/cuerpo */
+  --text-muted: #94a3b8; /* Texto sutil/ayuda */
+  --card-bg: #1e293b; /* Fondo de tarjetas/elementos */
+  --input-bg: var(--card-bg); /* Fondo de inputs */
+
+  /* Líneas, Sombras y Otros */
+  --border: rgba(255, 255, 255, 0.1); /* Borde sutil */
+  --shadow: rgba(0, 0, 0, 0.3); /* Sombra genérica */
+  --transition-duration: 0.3s; /* Duración de transiciones */
+}
+
+/* ==================================== */
+/* 2. TIPOGRAFÍA Y CUERPO */
+/* ==================================== */
+body {
+  min-height: 100vh;
+  font-family: "Inter", system-ui, sans-serif; /* Sugerencia de fuente moderna */
+  color: var(--text-primary);
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6; /* Ligeramente más espaciado para mejor lectura */
+  font-size: 16px;
+}
+
+h1,
+h2 {
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem; /* Ajustado de 1.25rem para más jerarquía */
+  font-weight: 700;
+}
+
+/* ==================================== */
+/* 3. NAVEGACIÓN (HEADER/NAVBAR) */
+/* ==================================== */
+
+/* Contenedor principal del Header */
+.navbar-header {
+  border-bottom: 1px solid var(--border);
+  /* No se requieren más reglas aquí si el nav interno define el layout */
+  /* Manteniendo el padding: */
+  padding: 0.5rem 0.5rem;
+}
+
+/* El elemento <nav> que gestiona el layout (Logo | Links | Botones) */
+.main-navbar {
+  display: flex;
+  justify-content: space-between; /* Distribuye ítems: izquierda, centro, derecha */
+  align-items: center; /* Centrado vertical */
+  max-width: 1400px; /* Limita el ancho del contenido del navbar */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 0 2rem; /* Añadido padding horizontal para evitar pegarse a los bordes */
+}
+
+/* --- LOGO Y SECCIÓN IZQUIERDA --- */
+.navbar-left a,
+.logo {
+  /* Unificando estilos para .logo y el contenido de .navbar-left */
+  font-size: 1.8rem; /* Usando rems */
+  font-weight: 800; /* Ligeramente más peso */
+  color: var(--text-primary); /* Mejor usar el color principal del texto */
+  text-decoration: none;
+  transition: color var(--transition-duration);
+}
+
+.navbar-left a:hover,
+.logo:hover {
+  color: var(--primary-light);
+}
+
+/* --- ENLACES CENTRALES --- */
+.navbar-center-links {
+  display: flex;
+  gap: 2rem; /* Ajustado el gap para mejor espaciado */
+}
+
+.navbar-center-links a {
+  text-decoration: none;
+  color: var(--text-secondary); /* Usando el color secundario para los links */
+  font-weight: 500;
+  padding: 0.5rem 0; /* Añade un poco de área clickeable vertical */
+  transition: color var(--transition-duration);
+}
+
+.navbar-center-links a:hover {
+  color: var(--primary-light);
+}
+
+/* --- BOTONES DERECHA --- */
+.navbar-right-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Estilos base para enlaces/botones de autenticación */
+.navbar-right-buttons a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  white-space: nowrap; /* Evita que el texto del botón se rompa */
+  transition: all var(--transition-duration) ease;
+}
+
+/* Estilo para el botón de 'Ingresar' (o primario) */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-primary) !important; /* Asegura el texto blanco */
+  border: 1px solid var(--primary);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: var(--text-primary) !important;
+}
+
+/* Asegurar el estilo del icono si se usa Font Awesome */
+.navbar-right-buttons i {
+  margin-right: 0.5rem;
+}
+
+/* ==================================== */
+/* 4. SECCIÓN HERO (PRINCIPAL) */
+/* ==================================== */
+.hero-section {
+  position: relative; /* Contenedor para la imagen, overlay y contenido */
+  width: 100%;
+  min-height: calc(
+    100vh - 80px
+  ); /* Ajusta la altura, restando la altura del navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  text-align: center; /* Centra el texto */
+  overflow: hidden; /* Asegura que nada se salga del hero */
+  padding: 2rem; /* Padding general para el contenido */
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cubre todo el espacio sin distorsionar */
+  z-index: 1; /* Detrás del overlay y contenido */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 6, 8, 0) 0%,
+    /* Transparente arriba */ var(--background) 100% /* Color base abajo */
+  );
+}
+
+.hero-content {
+  position: relative; /* Necesario para que esté encima del overlay */
+  z-index: 3;
+  max-width: 800px; /* Limita el ancho del texto y formulario */
+  padding: 1rem;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem; /* Título más grande para el hero */
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para resaltar sobre la imagen */
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- ESTILOS DEL FORMULARIO DE BÚSQUEDA EN EL HERO --- */
+.hero-search-form {
+  display: flex;
+  justify-content: center; /* Centra el formulario dentro del hero-content */
+  width: 100%;
+}
+
+.hero-search-form .input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--input-bg); /* Fondo del input */
+  border: 1px solid var(--border);
+  border-radius: 8px; /* Esquinas redondeadas para el contenedor */
+  max-width: 500px; /* Ancho máximo del formulario */
+  width: 100%;
+  overflow: hidden; /* Asegura que nada se salga de los bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-search-form .icon {
+  color: var(--text-muted);
+  margin-left: 1rem;
+  flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.hero-search-form input[type="text"] {
+  flex-grow: 1; /* Permite que el input ocupe el espacio restante */
+  padding: 0.8rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none; /* Eliminar el contorno al enfocar */
+}
+
+.hero-search-form input[type="text"]::placeholder {
+  color: var(--text-muted);
+}
+
+.hero-search-form button[type="submit"] {
+  background-color: var(--primary);
+  color: var(--text-primary);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+  border-top-right-radius: 8px; /* Solo estas esquinas, si el wrapper es redondo */
+  border-bottom-right-radius: 8px;
+  flex-shrink: 0; /* Evita que el botón se encoja */
+}
+
+.hero-search-form button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==================================== */
+/* 5. OTROS ESTILOS (PARA FUTURAS SECCIONES) */
+/* ==================================== */
+main {
+  flex-grow: 1; /* Permite que el main ocupe el espacio restante en un body flex */
+}
+
+/* ==================================== */
+/* 6. ARTICLE CARD */
+/* ==================================== */
+
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-cards-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+article {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  margin-bottom: 16px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 1px 3px 0px var(--border);
+
+  svg {
+    color: var(--primary);
+    background-color: var(--primary-dark);
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    padding: 16px;
+  }
+}
+
+/* ==================================== */
+/* 6. FOOTER PIE DE PAGINAS */
+/* ==================================== */
+
+footer {
+  background-color: var(--background);
+  /*border-top: 1px solid var(--border);*/
+  text-align: center;
+  padding: 16px;
+  small {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+}
