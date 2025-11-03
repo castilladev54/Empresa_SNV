@@ -43,15 +43,15 @@ body {
   font-size: 16px;
 }
 
-h1{
-  font-size: 1.5rem;
+h1 {
+  font-size: 3rem;
   line-height: 1.2;
   text-wrap: balance;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 
-  svg{
+  svg {
     width: 2rem;
     height: 2rem;
     color: var(--primary-light);
@@ -61,10 +61,8 @@ h1{
 h1 + p {
   text-wrap: balance;
   margin-bottom: 2rem;
+  opacity: 0.75;
 }
-
-
-
 
 /* ==================================== */
 /* 3. NAVEGACIÓN (HEADER/NAVBAR) */
@@ -100,7 +98,7 @@ h1 + p {
 }
 
 .navbar-left a:hover,
-.logo &:hover &:focus{
+.logo &:hover &:focus {
   color: var(--primary-light);
 }
 
@@ -184,7 +182,11 @@ main > section:nth-child(1) {
     z-index: -1;
     left: 0;
     right: 0;
-    mask-image: linear-gradient(to bottom, rgba(16, 25, 34, 1) 5%, rgba(16, 25, 34, 0) 80%);
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(16, 25, 34, 1) 5%,
+      rgba(16, 25, 34, 0) 80%
+    );
   }
 }
 
@@ -243,36 +245,56 @@ button {
   white-space: nowrap;
 
   &:hover, /* pseudo-clase que significa que el ratón está encima */
-  &:focus { /* pseudo-clase que significa que el elemento tiene el foco */
+  &:focus {
+    /* pseudo-clase que significa que el elemento tiene el foco */
     background-color: var(--primary-hover);
     outline: 2px solid white;
     outline-offset: 2px;
   }
 
-  &:active { 
-    transform: scale(0.90)
+  &:active {
+    transform: scale(0.9);
   }
 
   &:disabled {
-    opacity: .5;
+    opacity: 0.5;
     pointer-events: none;
   }
 }
 
-.info-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+main > section:nth-child(2) {
+  padding-inline: 1rem;
+  background-color: var(--background);
+  padding-top: 2rem;
+  text-align: center;
+
+  & > header {
+    gap: 2px;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    p {
+      opacity: 0.75;
+    }
+  }
+
+  & > div {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 }
 
-.info-cards-header {
-  text-align: center;
-  margin-bottom: 2rem;
+main > section:nth-child(2) h2{
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
 }
+
+
 
 article {
   background-color: var(--card-bg);
@@ -289,7 +311,24 @@ article {
     border-radius: 100%;
     padding: 16px;
   }
+
+  p {
+    color: var(--text-muted);
+  }
+
+  h3 {
+    font-weight: 500;
+  }
 }
+
+main >  section:nth-child(2) footer{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+
 
 /* ==================================== */
 /* 6. FOOTER PIE DE PAGINAS */
@@ -297,7 +336,7 @@ article {
 
 footer {
   background-color: var(--background);
-  /*border-top: 1px solid var(--border);*/
+  border-top: 1px solid var(--border);
   text-align: center;
   padding: 16px;
   small {
