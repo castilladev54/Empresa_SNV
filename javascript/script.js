@@ -1,71 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style2.css" />
-
-    <title>Gestión de Productos</title>
-  </head>
-  <body>
-    <main>
-      <section>
-        <h2>Gestión de Productos</h2>
-
-        <form id="form-productos">
-          <input type="hidden" id="producto-id" />
-          <input
-            type="text"
-            id="nombre"
-            placeholder="Nombre del producto"
-            required
-          />
-          <input
-            type="number"
-            id="precio-dolares"
-            placeholder="Precio en USD"
-            min="0"
-            step="0.01"
-            required
-          />
-          <button type="submit" id="btn-agregar">Agregar</button>
-          <button type="button" id="btn-cancelar" style="display: none">
-            Cancelar
-          </button>
-        </form>
-
-        <label for="tasa-cambiaria">Tasa cambiaria (Bs/USD): </label>
-        <input
-          type="number"
-          id="tasa-cambiaria"
-          value="8.5"
-          min="0"
-          step="0.01"
-        />
-      </section>
-
-      <section>
-        <div class="table-container">
-          <input type="text" id="buscar" placeholder="Buscar producto..." />
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Precio USD</th>
-                <th>Precio Bs</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="tabla-productos">
-              <!-- productos aquí -->
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-
-    <script>
-      // Variables globales
+ // Variables globales
       let productos = JSON.parse(localStorage.getItem("productos")) || [];
       let tasaCambiaria =
         parseFloat(localStorage.getItem("tasaCambiaria")) || 8.5;
@@ -198,6 +131,4 @@
       // Inicialización
       tasaInput.value = tasaCambiaria;
       renderTabla();
-    </script>
-  </body>
-</html>
+   
