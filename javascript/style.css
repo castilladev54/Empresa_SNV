@@ -321,7 +321,7 @@ article {
   }
 }
 
-main >  section:nth-child(2) footer{
+main >  section:nth-child(2) div{
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -344,6 +344,12 @@ footer {
 }
 
 
+/* ==================================== */
+/* 6. PAGINAS PORCENTAJE*/
+/* ==================================== */
 
-
+img{
+  width: 50px;
+  border-radius: 1rem;
+}
 

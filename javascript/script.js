@@ -1,6 +1,6 @@
 // Variables globales
 let productos = JSON.parse(localStorage.getItem("productos")) || [];
-let tasaCambiaria = parseFloat(localStorage.getItem("tasaCambiaria")) || 8.5;
+let tasaCambiaria = parseFloat(localStorage.getItem("tasaCambiaria")) || 231.67;
 let modoEdicion = false;
 let editarId = null;
 
@@ -14,6 +14,8 @@ const btnCancelar = document.getElementById("btn-cancelar");
 const tasaInput = document.getElementById("tasa-cambiaria");
 const tablaProductos = document.getElementById("tabla-productos");
 const buscarInput = document.getElementById("buscar");
+
+
 
 // Guardar productos y tasa en localStorage
 function guardarStorage() {
