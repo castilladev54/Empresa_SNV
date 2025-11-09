@@ -1,6 +1,3 @@
-
-
-
 :root {
   /* Colores Primarios y de Interacción */
   --primary: #1173d4;
@@ -9,8 +6,8 @@
   --primary-light: #09f;
 
   /* Colores de Fondo y Texto */
-  --background: #050608;
-  --text-primary: #ffffff;
+  --background: #050608; /* Fondo principal oscuro */
+ --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
   --card-bg: #1e293b;
@@ -33,22 +30,19 @@ body {
   font-family: "Inter", system-ui, sans-serif;
   color: var(--text-primary);
   background-color: var(--background);
-  display: flex;
-  flex-direction: column;
   line-height: 1.6;
   font-size: 16px;
 }
 
-main > section:nth-child(1) {
+.section-1 {
   height: 25%;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 1rem;
+
 }
 
-main > section:nth-child(1) h2 {
+.section h2 {
   font-size: 3rem;
   line-height: 1.2;
   text-wrap: balance;
@@ -57,25 +51,22 @@ main > section:nth-child(1) h2 {
   gap: 0.5rem;
 }
 
-main > section:nth-child(1) form {
+.section-1 form{  
   margin-bottom: 1rem;
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  align-items: center;
 }
 
-main > section:nth-child(1) form input,
-main > section:nth-child(1) form button {
-  padding: 0.5rem;
-  font-size: 1rem;
-  
-}
 
-main > section:nth-child(1) form input[type="text"],
-main > section:nth-child(1) form input[type="number"] {
+.section-1 form input[type="text"],
+.section-1 form input[type="number"] 
+{
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
+
 
 #form-productos input:not([type="hidden"]) {
   height: 2rem;
@@ -83,13 +74,21 @@ main > section:nth-child(1) form input[type="number"] {
 }
 
 #tasa-cambiaria {
-  height: 36px;
-  max-width: 150px;
+  height: 23px;
+  width: 90px;
   font-size: 1rem;
 }
 
+.container-tasa-cambiaria{
+  display: flex;
+  justify-content: end;
+  margin-top: 0.5rem;
+}
+
+
+
 /* ==== SECCIÓN DE TABLA ==== */
-main > section:nth-child(2) {
+.section-2 {
   /* ✅ Margen consistente (usa rem para escalabilidad) */
   margin: 1.5rem 0.75rem;
   
@@ -107,7 +106,7 @@ main > section:nth-child(2) {
   position: relative;
   
   /* ✅ Padding interno controlado */
-  padding: 1rem;
+  padding: 0.5rem;
   
   /* ✅ ✨ PROTECCIÓN ANTI-OVERFLOW */
   max-width: 100%;
@@ -224,6 +223,7 @@ img{
   justify-content: center;
   width: 44px;
   height: 44px;
+  margin-bottom: 1rem;
 }
 
 h1 {
@@ -233,4 +233,34 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
+}
+
+.form-productos{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 16px;
+}
+
+.producto-id{
+  display: flex; 
+  justify-content: center;
+
+}
+
+#navbarLateral {
+    height: 100%; /* Cubre toda la altura */
+    width: 250px;
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 10;
+    top: 0;
+    left: -250px; /* **Oculto fuera de la pantalla** */
+    background-color: #333;
+    padding-top: 60px;
+    transition: left 0.3s ease; /* Para una animación suave */
+}
+
+/* 🌟 La clase clave que se añade con JavaScript 🌟 */
+#navbarLateral.abierto {
+    left: 0; /* **Visible** en la pantalla */
 }

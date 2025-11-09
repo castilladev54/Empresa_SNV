@@ -324,6 +324,10 @@ article {
 main >  section:nth-child(2) div{
   margin-top: 1rem;
   display: grid;
+}
+
+main > section:nth-child(2) footer{
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
 }
@@ -352,4 +356,28 @@ img{
   width: 50px;
   border-radius: 1rem;
 }
+
+/* ==================================== */
+/* Navbar*/
+/* ==================================== */
+.sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
 

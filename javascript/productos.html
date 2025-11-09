@@ -12,15 +12,31 @@
         <button id="sidebar-toggle" class="sidebar-toggle">
           <span class="hamburger-icon">☰</span>
         </button>
+        <div>        <nav id="navbarLateral">
+    <button id="cerrarMenu" style="position: absolute; top: 10px; right: 10px;">✖</button>
+</nav></div>
+
+
+       
+
+<nav id="navbarLateral" class="abierto">
+    <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+</nav>
+
+
 
       </header>
-      <section>
+      <section class="section-1">
         <h1>Productos</h1>
 
-        <form id="form-productos">
+        <form id="form-productos" class="form-productos">
           <input type="hidden" id="producto-id"/>
           <input
-           
+            class="producto-id"
             type="text"
             id="nombre"
             placeholder="Nombre del producto"
@@ -40,7 +56,7 @@
             Cancelar
           </button>
         </form>
-
+         <div class="container-tasa-cambiaria">
         <label for="tasa-cambiaria">Tasa cambiaria (Bs/USD): </label>
         <input
           type="number"
@@ -49,9 +65,10 @@
           min="0"
           step="0.01"
         />
+        </div>
       </section>
 
-      <section>
+      <section class="section-2">
         <div class="table-container">
          
           <input type="text" id="buscar" placeholder="🔎Buscar producto..." />
