@@ -15,7 +15,34 @@ const tasaInput = document.getElementById("tasa-cambiaria");
 const tablaProductos = document.getElementById("tabla-productos");
 const buscarInput = document.getElementById("buscar");
 
+document.addEventListener("DOMContentLoaded", () => {
+  let sidebar = document.querySelector(".sidebar");
+  let closebtn = document.querySelector("#btn");
+  let searchbtn = document.querySelector(".bx-search");
 
+  closebtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    searchbtnChange();
+  });
+
+  searchbtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    searchbtnChange();
+  })
+
+  function searchbtnChange(){
+    if(sidebar.classList.contains("open")){
+      closebtn.classList.replace("bx-menu", "bx-menu-alt-right");
+    } else {
+      closebtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    
+    }
+  }
+
+  searchbtnChange();
+
+
+});
 
 // Guardar productos y tasa en localStorage
 function guardarStorage() {
