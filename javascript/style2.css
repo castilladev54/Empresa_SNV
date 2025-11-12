@@ -1,36 +1,53 @@
+/* ===========================================================
+   🎨 VARIABLES GLOBALES
+   =========================================================== */
 :root {
-  /* Colores Primarios y de Interacción */
+  /* Colores Primarios */
   --primary: #1173d4;
   --primary-dark: #0a3d66;
   --primary-hover: #0d5ba8;
   --primary-light: #09f;
 
-  /* Colores de Fondo y Texto */
-  --background: #050608; /* Fondo principal oscuro */
+  /* Fondo y Texto */
+  --background: #050608;
   --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
   --card-bg: #1e293b;
   --input-bg: var(--card-bg);
 
-  /* Líneas, Sombras y Otros */
+  /* Líneas y Sombras */
   --border: rgba(255, 255, 255, 0.1);
   --shadow: rgba(0, 0, 0, 0.3);
+
+  /* Transiciones */
   --transition-duration: 0.3s;
   --transition: all 0.5s ease;
+
+  /* Sidebar */
+  --sidebar-width: 78px;
+  --sidebar-width-open: 250px;
 }
 
+/* ===========================================================
+   🧩 RESETEO Y BASE
+   =========================================================== */
 * {
   margin: 0;
   padding: 0;
-
+  box-sizing: border-box;
 }
 
 body {
   min-height: 100vh;
-
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: system-ui, sans-serif;
 }
 
+/* ===========================================================
+   🧮 SECCIÓN 1 - FORMULARIO
+   =========================================================== */
 .section-1 {
   height: 25%;
   display: flex;
@@ -41,10 +58,10 @@ body {
 .section h2 {
   font-size: 3rem;
   line-height: 1.2;
-  text-wrap: balance;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
+  color: var(--text-primary);
 }
 
 .section-1 form {
@@ -57,13 +74,13 @@ body {
 .section-1 form input[type="text"],
 .section-1 form input[type="number"] {
   flex-grow: 1;
-  display: flex;
-  justify-content: center;
-}
-
-#form-productos input:not([type="hidden"]) {
   height: 2rem;
   font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
 }
 
 #tasa-cambiaria {
@@ -78,40 +95,25 @@ body {
   margin-top: 0.5rem;
 }
 
-/* ==== SECCIÓN DE TABLA ==== */
+/* ===========================================================
+   📊 SECCIÓN 2 - TABLA
+   =========================================================== */
 .section-2 {
-  /* ✅ Margen consistente (usa rem para escalabilidad) */
   margin: 1.5rem 0.75rem;
-
-  /* ✅ Ocupa espacio disponible, pero sin forzar */
   flex: 1 1 auto;
-
-  /* ✅ Layout vertical seguro */
   display: flex;
   flex-direction: column;
-
-  /* ✅ ✨ CLAVE: NO usar align-items: center en móviles → usar stretch */
-  align-items: stretch; /* ← Permite que hijos usen 100% del ancho útil */
-
-  /* ✅ Posición relativa solo si se usan hijos absolutos (ej: botones flotantes) */
+  align-items: stretch;
   position: relative;
-
-  /* ✅ Padding interno controlado */
   padding: 0.5rem;
-
-  /* ✅ ✨ PROTECCIÓN ANTI-OVERFLOW */
   max-width: 100%;
-  box-sizing: border-box;
-
-  /* ✅ Evita que hijos generen scroll horizontal */
   overflow-x: hidden;
 }
 
-/* Formulario de búsqueda sticky */
 #buscar {
   position: sticky;
   top: 0;
-  z-index: 10px;
+  z-index: 10;
   background-color: var(--background);
   width: 100%;
   margin-bottom: 1rem;
@@ -122,17 +124,15 @@ body {
   color: var(--text-primary);
 }
 
-/* Contenedor con scroll para la tabla */
 .table-container {
   width: 100%;
-  max-height: 60vh; /* Altura máxima visible */
+  max-height: 60vh;
   overflow-y: auto;
   border: 1px solid var(--border);
   border-radius: 8px;
   background-color: var(--card-bg);
 }
 
-/* ==== ESTILOS DE TABLA ==== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -142,12 +142,11 @@ thead {
   background-color: var(--primary);
   color: white;
   position: sticky;
-  top: 42px; /* se fija justo debajo del buscador */
-  z-index: 4;
+  top: 42px;
+  z-index: 5;
 }
 
-th,
-td {
+th, td {
   border: 1px solid #333;
   padding: 0.5rem;
   text-align: center;
@@ -157,7 +156,9 @@ tbody tr:nth-child(even) {
   background-color: var(--card-bg);
 }
 
-/* ==== BOTONES ==== */
+/* ===========================================================
+   🔘 BOTONES
+   =========================================================== */
 button {
   cursor: pointer;
   padding: 0.25rem 0.5rem;
@@ -180,31 +181,31 @@ button.delete {
   background-color: #dc3545;
 }
 
-/* ==================================== */
-/* 6.PAGINAS PORCENTAJE*/
-/* ====================================*/
+/* ===========================================================
+   📷 IMÁGENES
+   =========================================================== */
 img {
   width: 50px;
   border-radius: 1rem;
 }
-/* ==================================== */
-/* SideBar/
-/* ====================================*/
 
+/* ===========================================================
+   📚 SIDEBAR
+   =========================================================== */
 .sidebar {
   position: fixed;
   left: 0;
   top: 0;
   height: 100%;
-  width: 78px;
+  width: var(--sidebar-width);
   padding: 6px 14px;
-  z-index: 1;
   background-color: var(--card-bg);
   transition: var(--transition);
+  z-index: 100;
 }
 
 .sidebar.open {
-  width: 250px;
+  width: var(--sidebar-width-open);
 }
 
 .sidebar .logo-details {
@@ -223,7 +224,6 @@ img {
   transition: all 0.5s ease;
 }
 
-.sidebar.open .logo-details,
 .sidebar.open .logo-details .logo_name {
   opacity: 1;
 }
@@ -234,13 +234,9 @@ img {
   right: 0;
   transform: translateY(-50%);
   font-size: 22px;
-  text-align: center;
   cursor: pointer;
   transition: all 0.5s ease;
-}
-
-.sidebar.open .logo-details #btn {
-  text-align: center;
+  color: var(--text-primary);
 }
 
 .sidebar i {
@@ -258,201 +254,134 @@ img {
 }
 
 .sidebar li {
-  position: relative;
-  margin: 8px 0;
   list-style: none;
+  margin: 8px 0;
+  position: relative;
 }
 
-.sidebar input {
-  font-size: 15px;
-  color: var(--text-primary);
-  font-weight: 400;
-  outline: none;
+.sidebar li a {
+  display: flex;
+  align-items: center;
   height: 50px;
   width: 100%;
-  border: none;
   border-radius: 12px;
-  transition: all 0.5s ease;
+  text-decoration: none;
+  transition: all 0.4s ease;
   background: var(--primary);
 }
 
-.sidebar.open input {
-  padding: 0 20px 0 50px;
-  width: 100%;
-}
-
-.sidebar .bx-search {
-  position: absolute;
-  top: 51%;
-  left: 0;
-  transform: translateY(-50%);
-  font-size: 22px;
-  color: #fff;
-}
-
-.sidebar .bx-search:hover {
-  background: var(--primary-light);
-  color: #11101d;
-  cursor: pointer;
-}
-
-.sidebar.open .bx-search:hover {
-  color: var(--card-bg);
-  background: var(--primary-light);
-  cursor: pointer;
-}
-
-.sidebar li i {
-  height: 50px;
-  line-height: 50px;
-  font-size: 18px;
-  border-radius: 12px;
-}
-
-/* ==================================== */
-/* SideBar/Lista clase activa
-/* ====================================*/
-
-.sidebar li a {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    border-radius: 12px;
-    align-items: center;
-    text-decoration: none;
-    transition: all 0.4s ease;
-    background: var(--primary);
-}
-
 .sidebar li a:hover {
-    background: var(--primary-light);
+  background: var(--primary-light);
 }
 
 .sidebar li a .links_name {
-    color: #fff;
-    font-size: 15px;
-    font-weight: 400;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
 }
 
 .sidebar.open li a .links_name {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.sidebar li a:hover .links_name,
-.sidebar li a:hover i {
-    transition: all 0.5s ease;
-}
-
+/* TOOLTIP */
 .sidebar li .tooltip {
-    position: absolute;
-    top: -20px;
-    left: calc(100% + 15px);
-    background: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 15px;
-    font-weight: 400;
-    opacity: 0;
-    white-space: nowrap;
-    pointer-events: none;
-    transition: 0s;
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0s;
 }
 
 .sidebar li:hover .tooltip {
-    opacity: 1;
-    pointer-events: auto;
-    transition: all 0.4s ease;
-    top: 50%;
-    transform: translateY(-50%);
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .sidebar.open li .tooltip {
-    display: none;
+  display: none;
 }
 
+/* PERFIL */
 .sidebar li.profile {
-    position: fixed;
-    height: 60px;
-    width: 78px;
-    left: 0;
-    bottom: -8px;
-    padding: 10px 14px;
- 
-    transition: all 0.5s ease;
-    overflow: hidden;
+  position: fixed;
+  height: 60px;
+  width: var(--sidebar-width);
+  left: 0;
+  bottom: -8px;
+  padding: 10px 14px;
+  transition: all 0.5s ease;
+  overflow: hidden;
 }
 
 .sidebar.open li.profile {
-    width: 150px;
+  width: 150px;
 }
 
-.sidebar li .profile-details {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-
-.sidebar li img {
-    height: 45px;
-    width: 45px;
-    object-fit: contain;
-    border-radius: 6px;
-    margin-right: 10px;
+.sidebar li.profile img {
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-right: 10px;
 }
 
 .sidebar li.profile .name,
 .sidebar li.profile .job {
-    font-size: 15px;
-    font-weight: 400;
-    color: #fff;
-    white-space: nowrap;
+  font-size: 15px;
+  color: #fff;
+  white-space: nowrap;
 }
 
 .sidebar li.profile .job {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .sidebar .profile #log_out {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    background: var(--card-bg);
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    transition: all 0.5s ease;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--card-bg);
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  transition: all 0.5s ease;
 }
 
 .sidebar.open .profile #log_out {
-    width: 50px;
-    background: none;
+  width: 50px;
+  background: none;
 }
 
-.home-main{
-    position: relative;
-
-    min-height: 100vh;
-    top: 0;
-    left: 78px;
-    width: calc(100% -78px);
-  
-      position: relative;
-
-
-  transition: var(--transition);
-
+/* ===========================================================
+   🏠 CONTENIDO PRINCIPAL (HOME)
+   =========================================================== */
+.home-main {
+  position: relative;
+  min-height: 100vh;
+  top: 0;
+  left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  transition: margin-left 0.5s ease, width 0.5s ease;
   padding: 20px;
 }
 
-.sidebar.open~.home-section {
-  margin-left: var(--sidebar-width-open);
+.sidebar.open ~ .home-main {
+  left: var(--sidebar-width-open);
   width: calc(100% - var(--sidebar-width-open));
 }
-

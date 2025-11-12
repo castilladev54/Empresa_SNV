@@ -159,13 +159,7 @@ body {
 /* ==================================== */
 /* 5. RESULTADOS */
 /* ==================================== */
-.jobs-listings {
-  display: grid;
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
+
 
 .jobs-listings article {
   background-color: var(--card-bg);
