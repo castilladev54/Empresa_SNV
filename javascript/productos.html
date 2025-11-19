@@ -12,154 +12,173 @@
     <title>Gestión de Productos</title>
   </head>
   <body>
-    <!--NavBar-->
-    <header>
-      <div class="sidebar open">
-        <div class="logo-details">
-          <div class="logo_name"></div>
-          <i class="bx bx-menu" id="btn"></i>
-          <i class=""></i>
-        </div>
-        <ul class="nav-list">
-          <li>
-            <i class="bx bx-search"></i>
-            <input type="text" placeholder="Search..." />
-            <span class="tooltip">Search</span>
-          </li>
-          <li>
-            <a href="">
-              <i class="bx bx-grid-alt"></i>
-              <span class="links_name">Dashboard</span>
-            </a>
-            <span class="tooltip">Dashboard</span>
-          </li>
-          <li>
-            <a href="">
-              <i class="bx bx-user"></i>
-              <span class="links_name">User</span>
-            </a>
-            <span class="tooltip">User</span>
-          </li>
-          <li>
-            <a href="">
-              <i class="bx bx-chat"></i>
-              <span class="links_name">Messages</span>
-            </a>
-            <span class="tooltip">Messages</span>
-          </li>
-          <li>
-            <a href="">
-              <i class="bx bx-pie-chart-alt-2"></i>
-              <span class="links_name">Analytics</span>
-            </a>
-            <span class="tooltip">Analytics</span>
-          </li>
-          <li>
-            <a href="">
-              <i class="bx bx-folder"></i>
-              <span class="links_name">Files</span>
-            </a>
-            <span class="tooltip">Files</span>
-          </li>
-          <li>
-            <a href="">
-              <i class="bx bx-cart-alt"></i>
-              <span class="links_name">Order</span>
-            </a>
-            <span class="tooltip">Order</span>
-          </li>
-          <li>
-            <a href="">
-              <i class="bx bx-heart"></i>
-              <span class="links_name">Saved</span>
-            </a>
-            <span class="tooltip">Saved</span>
-          </li>
-          <li>
-            <a href="">
-              <i class="bx bx-cog"></i>
-              <span class="links_name">Settings</span>
-            </a>
-            <span class="tooltip">Settings</span>
-          </li>
-          <li class="profile">
-            <div class="profile-details">
-              <img src="./1F1FB-1F1EA.svg" alt="profileImg" />
-              <div class="name_job">
-                <div class="name"></div>
-                <div class="job">Web Developer</div>
-              </div>
+    <body>
+  <!-- SIDEBAR: componente independiente → usa <aside> -->
+  <aside class="sidebar sidebar--open" aria-label="Navegación principal">
+    <div class="sidebar__brand">
+      <div class="sidebar__logo" aria-hidden="true"></div>
+      <button class="sidebar__toggle" id="btn" aria-expanded="true" aria-controls="nav-list">
+        <i class="bx bx-menu" aria-hidden="true"></i>
+        <span class="visually-hidden">Mostrar / ocultar menú</span>
+      </button>
+    </div>
+
+    <nav class="sidebar__nav" id="nav__list" role="navigation" aria-label="Menú principal">
+      <ul class="sidebar__list">
+        <li class="sidebar__item sidebar__item--search">
+          <label class="sidebar__label visually-hidden" for="sidebar__search">Buscar</label>
+          <input class="sidebar__search" id="sidebar__search" name="sidebar__search" type="search" placeholder="Buscar..." />
+        </li>
+
+        <li class="sidebar__item">
+          <a class="sidebar__link" href="#" aria-current="page">
+            <i class="bx bx-grid-alt" aria-hidden="true"></i>
+            <span class="sidebar__text">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="sidebar__item">
+          <a class="sidebar__link" href="#">
+            <i class="bx bx-user" aria-hidden="true"></i>
+            <span class="sidebar__text">Usuarios</span>
+          </a>
+        </li>
+
+        <!-- más ítems... -->
+        <li class="sidebar__item sidebar__item--profile" aria-hidden="false">
+          <div class="profile">
+            <img class="profile__avatar" src="./1F1FB-1F1EA.svg" alt="Avatar" />
+            <div class="profile__meta">
+              <span class="profile__name">Tu Nombre</span>
+              <span class="profile__role">Web Developer</span>
             </div>
-            <i class="bx bx-log-out" id="log_out"></i>
-          </li>
-        </ul>
-      </div>
-      <section class="home-section">
-        <div class="text">Dashboard</div>
-      </section>
-    </header>
-
-    <main class="home-main">
-      <!--Section-->
-      <section class="home-section">
-        <section class="section-1">
-          <h1>Productos</h1>
-
-          <form id="form-productos" class="form-productos">
-            <input type="hidden" id="producto-id" />
-            <input
-              class="producto-id"
-              type="text"
-              id="nombre"
-              placeholder="Nombre del producto"
-              required
-            />
-            <input
-              type="number"
-              id="precio-dolares"
-              placeholder="Precio en USD"
-              min="0"
-              step="0.01"
-              required
-            />
-            <button type="submit" id="btn-agregar">Agregar</button>
-            <button type="button" id="btn-cancelar" style="display: none">
-              Cancelar
+            <button class="profile__logout" id="log__out" aria-label="Cerrar sesión">
+              <i class="bx bx-log-out" aria-hidden="true"></i>
             </button>
-          </form>
-          <div class="container-tasa-cambiaria">
-            <label for="tasa-cambiaria">Tasa cambiaria (Bs/USD): </label>
-            <input
-              type="number"
-              id="tasa-cambiaria"
-              value="8.5"
-              min="0"
-              step="0.01"
-            />
           </div>
-        </section>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 
-        <section class="section-2">
-          <div class="table-container">
-            <input type="text" id="buscar" placeholder="Buscar producto..." />
-            <table>
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Precio USD</th>
-                  <th>Precio Bs</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="tabla-productos">
-                <!-- productos aquí -->
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </section>
-    </main>
+  <!-- HEADER: cabecera corta para título global / breadcrumb -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <h1 class="site-header__title visually-hidden">Panel de Gestión</h1>
+      <div class="site-header__breadcrumb">Dashboard</div>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
+  <!-- MAIN: contenido principal -->
+  <main class="main" id="main" role="main">
+    <!-- PRODUCT BLOCK (BEM: block = product) -->
+    <section class="product" aria-labelledby="product__title">
+      <h2 id="product__title" class="product__title">Productos</h2>
+
+      <form id="form-productos" class="product-form" role="form" aria-describedby="product-form-desc">
+        <p id="product-form-desc" class="visually-hidden">Formulario para agregar o editar productos.</p>
+        <input type="hidden" id="producto-id" name="producto-id" />
+
+        <div class="field field--name">
+          <label class="field__label" for="nombre">Nombre del producto</label>
+          <input
+            class="field__input"
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Nombre del producto"
+            required
+          />
+        </div>
+
+        <div class="field field--price">
+          <label class="field__label" for="precio-dolares">Precio (USD)</label>
+          <input
+            class="field__input"
+            id="precio-dolares"
+            name="precio-dolares"
+            type="number"
+            placeholder="Precio en USD"
+            min="0"
+            step="0.01"
+            required
+          />
+        </div>
+
+        <div class="product-form__actions">
+          <button
+            class="product-form__button product-form__button--add"
+            type="submit"
+            id="btn-agregar"
+          >
+            Agregar
+          </button>
+
+          <button
+            class="product-form__button product-form__button--cancel"
+            type="button"
+            id="btn-cancelar"
+            hidden
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+
+      <!-- Campo reutilizable: exchange-rate como modificador del bloque field -->
+      <div class="field field--exchange-rate">
+        <label class="field__label" for="tasa-cambiaria">Tasa cambiaria (Bs/USD)</label>
+        <input
+          class="field__input field__input--numeric"
+          id="tasa-cambiaria"
+          name="tasa-cambiaria"
+          type="number"
+          value="8.5"
+          min="0"
+          step="0.01"
+        />
+      </div>
+    </section>
+
+    <!-- TABLE BLOCK (BEM: block = table) -->
+    <section class="table" aria-labelledby="table-title">
+      <h2 id="table-title" class="visually-hidden">Listado de productos</h2>
+
+      <div class="table__container">
+        <label class="table__label visually-hidden" for="buscar">Buscar producto</label>
+        <input
+          class="table__search"
+          type="search"
+          id="buscar"
+          name="buscar"
+          placeholder="Buscar producto..."
+          aria-controls="tabla-productos"
+        />
+
+        <div class="table__scroll">
+          <table class="table__element" role="table" aria-describedby="table-desc">
+            <caption id="table-desc" class="visually-hidden">Productos y precios</caption>
+
+            <thead class="table__head">
+              <tr class="table__row table__row--head">
+                <th class="table__cell" scope="col">Nombre</th>
+                <th class="table__cell" scope="col">Precio USD</th>
+                <th class="table__cell" scope="col">Precio Bs</th>
+                <th class="table__cell" scope="col">Acciones</th>
+              </tr>
+            </thead>
+
+            <tbody class="table__body" id="tabla-productos">
+              <!-- filas generadas dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+
   </body>
 </html>
