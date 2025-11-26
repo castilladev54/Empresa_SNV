@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Transferencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0066b3;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .details {
+            margin: 25px 0;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .details div {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+
+        .details label {
+            font-weight: bold;
+            min-width: 200px;
+        }
+
+        .logo {
+            margin: 20px auto;
+            width: 60px;
+        }
+
+        img{
+          height: 4rem;
+        }
+
+        .footer {
+            font-size: -7px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+            transition: background-color 0.2s;
+        }
+
+        .btn-continue {
+            background-color: #0066b3;
+        }
+
+        .btn-print {
+            background-color: #0066b3;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn:hover {
+            background-color: #005599;
+        }
+
+        .print-icon {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado de Transferencia en línea a Otros Bancos</h1>
+        
+        <p>Tu transferencia de fondos en línea a otros bancos ha sido generado con éxito bajo el número de operación: <strong>70959085</strong></p>
+
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+
+        <div class="details">
+            <div><label>Instrumento origen:</label> <span>0102***8612</span></div>
+            <div><label>Instrumento destino:</label> <span>010250471160062338535</span></div>
+            <div><label>Monto operación:</label> <span>241,580</span></div>
+            <div><label>Concepto:</label> <span>pago de compra carro</span></div>
+            <div><label>Estatus:</label> <span>En proceso</span></div>
+        </div>
+
+        <div class="logo">
+            <!-- Logo del Banco de Venezuela (representación simple) -->
+            <img src="https://media.licdn.com/dms/image/v2/C4E0BAQEoelNwmS954Q/company-logo_200_200/company-logo_200_200/0/1672757805479/banco_de_venezuela_logo?e=2147483647&v=beta&t=70mILpBixFVf2qAsEyhK_pzeB-AvaGyXbhzTL3Tma8Q"/>
+          </div>
+
+        <div class="footer">
+            Banco de Venezuela, S.A. Banco Universal © RIF G-20009997-6.
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-continue">Continuar</button>
+            <button class="btn btn-print">
+                <span class="print-icon">🖨️</span> Imprimir
+            </button>
+        </div>
+    </div>
+</body>
+</html>

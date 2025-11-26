@@ -1,3 +1,5 @@
+
+
 // Variables globales
 let productos = JSON.parse(localStorage.getItem("productos")) || [];
 let tasaCambiaria = parseFloat(localStorage.getItem("tasaCambiaria")) || 231.67;
