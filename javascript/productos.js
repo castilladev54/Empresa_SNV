@@ -2,6 +2,16 @@ const menuItemsDropDown = document.querySelectorAll(".menu-item-dropdown");
 const menusItemsStatic = document.querySelectorAll(".menu-item-static");
 const sidebar = document.getElementById("sidebar");
 const menuBtn = document.getElementById("menu-btn");
+const sidebarBtn = document.getElementById("sidebar-btn");
+const darkModeBtn = document.getElementById("dark-mode-btn");
+
+darkModeBtn.addEventListener("click", () =>{
+  document.body.classList.toggle("dark-mode");
+});
+
+sidebarBtn.addEventListener("click",()=>{
+  document.body.classList.toggle("sidebar-hidden");
+});
 
 menuBtn.addEventListener("click", () => {
   sidebar.classList.toggle("minimize");
@@ -47,3 +57,10 @@ menusItemsStatic.forEach((menuItem) => {
     });
   });
 });
+
+function checkWindowSize(){
+  sidebar.classList.remove("minimize");
+}
+checkWindowSize();
+window.addEventListener("resize",checkWindowSize);
+
