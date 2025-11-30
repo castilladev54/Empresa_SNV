@@ -16,6 +16,17 @@
   --color-tooltip-text: #fff;
   --shadow-border: rgba(0, 0, 0, 0.1);
   --user-bg-color: #fafafc;
+    --color-bg: #ffffff;
+  --color-border: #e0e0e0;
+  --color-text: #333;
+  --color-muted: #777;
+  --color-primary: #007bff;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --shadow-soft: 0 2px 4px rgba(0,0,0,0.08);
+  --transition: 0.2s ease-in-out;
 
 }
 /* Body */
@@ -332,7 +343,7 @@ main{
   transition: padding 0.5s ease;
 }
 
-main h1{
+main h1, h2, p, label, input, table{
   color: var(--color-text-primary);
 }
 
@@ -436,4 +447,113 @@ body.dark-mode .dark-mode-btn i:first-child{
   main{
     padding: 2rem;
   }
+}
+
+/* ================================
+   SISTEMA BASE
+================================ */
+:root {
+  --color-bg: #ffffff;
+  --color-border: #e0e0e0;
+  --color-text: #333;
+  --color-muted: #777;
+  --color-primary: #007bff;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --shadow-soft: 0 2px 4px rgba(0,0,0,0.08);
+  --transition: 0.2s ease-in-out;
+}
+
+
+
+/* ================================
+   BLOQUE: table
+================================ */
+.table {
+  padding: 1rem;
+}
+
+.table__container {
+  background: var(--color-bg);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  overflow-x: auto;
+}
+
+/* ================================
+   BUSCADOR
+================================ */
+.table__search {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+
+  transition: var(--transition);
+}
+
+.table__search:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* ================================
+   TABLA
+================================ */
+.table__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table__header th {
+  text-align: left;
+  padding: 0.8rem;
+  background: #f5f5f5;
+  border-bottom: 2px solid var(--color-border);
+  font-weight: bold;
+}
+
+.table__row {
+  transition: var(--transition);
+}
+
+.table__row:hover {
+  background: #f9f9f9;
+}
+
+.table__cell {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ================================
+   ACCIONES (botones)
+================================ */
+.table__actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.table__action-btn {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.85rem;
+
+  border: 1px solid var(--color-border);
+  background: #fff;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+
+  transition: var(--transition);
+}
+
+.table__action-btn:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
 }

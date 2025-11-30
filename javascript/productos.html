@@ -3,22 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestión de Productos</title>
     <link
       href="https://cdn.boxicons.com/3.0.5/fonts/basic/boxicons.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="productos.css" />
-    <title>Gestión de Productos</title>
+
   </head>
 
   <body>
     <div class="menu-btn sidebar-btn" id="sidebar-btn">
-      <i class='bxr  bx-menu'></i> 
-      <i class='bxr  bx-x'></i> 
+      <i class="bxr bx-menu"></i>
+      <i class="bxr bx-x"></i>
     </div>
     <div class="dark-mode-btn" id="dark-mode-btn">
-      <i class='bxr  bx-moon'></i> 
-      <i class='bxr  bx-sun'></i> 
+      <i class="bxr bx-moon"></i>
+      <i class="bxr bx-sun"></i>
     </div>
     <div class="sidebar" id="sidebar">
       <div class="header">
@@ -95,11 +96,12 @@
             </a>
           </li>
         </ul>
-        
+
         <div class="user">
           <div class="user-img">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToK4qEfbnd-RN82wdL2awn_PMviy_pelocqQ&s"
+              alt="User"
             />
           </div>
 
@@ -113,11 +115,136 @@
         </div>
       </div>
     </div>
-    <main>
-      <h1>
-        Sidebar
-      </h1>
+
+    <main class="main" id="main" role="main">
+      <h1>Sidebar</h1>
+
+      <!-- PRODUCT BLOCK (BEM: block = product) -->
+      <section class="product" aria-labelledby="product-title">
+        <h2 id="product-title" class="product__title">Productos</h2>
+
+        <form
+          id="form-productos"
+          class="product-form"
+          role="form"
+          aria-describedby="product-form-desc"
+        >
+          <p id="product-form-desc" class="visually-hidden">
+            Formulario para agregar o editar productos.
+          </p>
+          <input type="hidden" id="producto-id" name="producto-id" />
+
+          <div class="field field--name">
+            <label class="field__label" for="nombre">Nombre del producto</label>
+            <input
+              class="field__input"
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Nombre del producto"
+              required
+            />
+          </div>
+
+          <div class="field field--price">
+            <label class="field__label" for="precio-dolares"
+              >Precio (USD)</label
+            >
+            <input
+              class="field__input"
+              id="precio-dolares"
+              name="precio-dolares"
+              type="number"
+              placeholder="Precio en USD"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+
+          <div class="product-form__actions">
+            <button
+              class="product-form__button product-form__button--add"
+              type="submit"
+              id="btn-agregar"
+            >
+              Agregar
+            </button>
+
+            <button
+              class="product-form__button product-form__button--cancel"
+              type="button"
+              id="btn-cancelar"
+              hidden
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+
+        <!-- Campo reutilizable: exchange-rate como modificador del bloque field -->
+        <div class="field field--exchange-rate">
+          <label class="field__label" for="tasa-cambiaria"
+            >Tasa cambiaria (Bs/USD)</label
+          >
+          <input
+            class="field__input field__input--numeric"
+            id="tasa-cambiaria"
+            name="tasa-cambiaria"
+            type="number"
+            value="8.5"
+            min="0"
+            step="0.01"
+          />
+        </div>
+      </section>
+
+      <!-- TABLE BLOCK (BEM: block = table) -->
+      <section class="table" aria-labelledby="table-title">
+        <h1 id="table-title" class="visually-hidden">Listado de productos</h1>
+
+        <div class="table__container">
+          <label class="table__label visually-hidden" for="buscar"
+            >Buscar producto</label
+          >
+          <input
+            class="table__search"
+            type="search"
+            id="buscar"
+            name="buscar"
+            placeholder="Buscar producto..."
+            aria-controls="tabla-productos"
+          />
+
+          <div class="table__scroll">
+            <table
+              class="table__element"
+              role="table"
+              aria-describedby="table-desc"
+            >
+              <caption id="table-desc" class="visually-hidden">
+                Productos y precios
+              </caption>
+
+              <thead class="table__head">
+                <tr class="table__row table__row--head">
+                  <th class="table__cell" scope="col">Nombre</th>
+                  <th class="table__cell" scope="col">Precio USD</th>
+                  <th class="table__cell" scope="col">Precio Bs</th>
+                  <th class="table__cell" scope="col">Acciones</th>
+                </tr>
+              </thead>
+
+              <tbody class="table__body" id="tabla-productos">
+                <!-- filas generadas dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </main>
+
+
     <script src="productos.js"></script>
   </body>
 </html>
