@@ -386,6 +386,11 @@ body.dark-mode .dark-mode-btn i:first-child{
   transform: translateY(-150%);
 }
 
+main {
+  padding: 2rem 3rem 1rem 17rem; /* respeta tu padding original */
+  transition: padding 0.5s ease;
+}
+
 .sidebar.minimize + main{
   padding-left: 7.96rem;
 }
@@ -440,11 +445,9 @@ body.dark-mode .dark-mode-btn i:first-child{
   main{
     padding: 2rem;
   }
-}
 
-/* ================================
-   main responsivo
-================================ */
+
+}
 
 /* ============================================
    BASE THEME VARIABLES (MODERN UI)
@@ -468,12 +471,8 @@ body.dark-mode .dark-mode-btn i:first-child{
 ============================================ */
 .main {
   padding: 2rem 3rem 1rem 17rem; /* respeta tu padding original */
-  min-height: 100vh;
-  background: var(--color-bg);
+
   transition: padding 0.5s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem; /* separación elegante entre secciones */
 }
 
 /* ============================================
@@ -483,21 +482,16 @@ body.dark-mode .dark-mode-btn i:first-child{
 .table__title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
+  
 }
 
 /* ============================================
    PRODUCT FORM CARD
 ============================================ */
 .product-form {
-  background: var(--color-white);
-  padding: 1.7rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  max-width: 480px;
   display: flex;
-  flex-direction: column;
   gap: 1.2rem;
 }
 
@@ -510,7 +504,8 @@ body.dark-mode .dark-mode-btn i:first-child{
 
 .field__label {
   font-weight: 600;
-  color: var(--color-muted);
+  color: var(--color-text-primary);
+  background-color: var(--color );
 }
 
 .field__input {
@@ -538,6 +533,8 @@ body.dark-mode .dark-mode-btn i:first-child{
 
 .product-form__button {
   flex: 1;
+  height: 60%;
+  margin-top: auto;
   padding: 0.8rem;
   border-radius: var(--radius-sm);
   border: none;
@@ -558,11 +555,12 @@ body.dark-mode .dark-mode-btn i:first-child{
 
 /* CANCEL BUTTON */
 .product-form__button--cancel {
-  background: #f1f5f9;
-  color: var(--color-muted);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: #fff;
 }
 .product-form__button--cancel:hover {
-  background: #e2e8f0;
+  background: #2563eb;
 }
 
 /* ============================================
@@ -575,11 +573,15 @@ body.dark-mode .dark-mode-btn i:first-child{
 /* ============================================
    TABLE CARD
 ============================================ */
+.visually-hidden{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+}
+
 .table__container {
-  background: var(--color-white);
-  padding: 1.7rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -604,7 +606,8 @@ body.dark-mode .dark-mode-btn i:first-child{
 
 /* WRAPPER FOR TABLE SCROLL */
 .table__scroll {
-  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
   border-radius: var(--radius);
 }
 
@@ -613,6 +616,11 @@ body.dark-mode .dark-mode-btn i:first-child{
   width: 100%;
   border-collapse: collapse;
   min-width: 680px;
+  background-color: var(--color-white);
+  padding: 1.7rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-y: scroll;
 }
 
 /* HEAD */
@@ -628,6 +636,7 @@ body.dark-mode .dark-mode-btn i:first-child{
 
 /* ROWS */
 .table__body td {
+  
   padding: 0.8rem 1rem;
   border-bottom: 1px solid var(--color-border);
   font-size: 0.92rem;

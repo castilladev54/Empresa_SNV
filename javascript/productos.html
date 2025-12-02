@@ -117,7 +117,7 @@
       </div>
     </div>
 
-    <main class="main" id="main" role="main">
+    <main>
 
 
       <!-- PRODUCT BLOCK (BEM: block = product) -->
@@ -130,9 +130,7 @@
           role="form"
           aria-describedby="product-form-desc"
         >
-          <p id="product-form-desc" class="visually-hidden">
-            Formulario para agregar o editar productos.
-          </p>
+
           <input type="hidden" id="producto-id" name="producto-id" />
 
           <div class="field field--name">
@@ -142,7 +140,7 @@
               id="nombre"
               name="nombre"
               type="text"
-              placeholder="Nombre del producto"
+              placeholder="📦Nombre del producto"
               required
             />
           </div>
@@ -156,7 +154,7 @@
               id="precio-dolares"
               name="precio-dolares"
               type="number"
-              placeholder="Precio en USD"
+              placeholder="💰Precio en USD"
               min="0"
               step="0.01"
               required
@@ -205,9 +203,6 @@
         <h1 id="table-title" class="visually-hidden">Listado de productos</h1>
 
         <div class="table__container">
-          <label class="table__label visually-hidden" for="buscar"
-            >Buscar producto</label
-          >
           <input
             class="table__search"
             type="search"
@@ -223,9 +218,6 @@
               role="table"
               aria-describedby="table-desc"
             >
-              <caption id="table-desc" class="visually-hidden">
-                Productos y precios
-              </caption>
 
               <thead class="table__head">
                 <tr class="table__row table__row--head">
