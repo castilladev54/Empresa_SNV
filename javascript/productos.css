@@ -129,7 +129,7 @@ body.dark-mode{
 }
 
 /*Search*/
-.search {
+.search{
   display: flex;
   width: 100%;
   padding: 0.55rem 0;
@@ -447,6 +447,7 @@ main {
   }
 
 
+
 }
 
 /* ============================================
@@ -581,7 +582,6 @@ main {
 }
 
 .table__container {
-
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -676,6 +676,145 @@ main {
 .table__action-btn--delete:hover {
   background: #d62828;
   color: #fff;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN — TABLET
+   <= 1024px
+============================================================ */
+@media (max-width: 1024px) {
+
+  .main {
+    padding: 2rem 2rem; 
+  }
+
+  .product-form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .product-form__actions {
+    flex-direction: row;
+  }
+
+  .table__scroll {
+    max-height: 350px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN — MOBILE LARGE
+   <= 768px
+============================================================ */
+@media (max-width: 768px) {
+
+  /* Ocultar sidebar y usar botón flotante */
+  #menu-btn {
+    display: none;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+  }
+
+  body.sidebar-hidden .sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-btn {
+    display: flex;
+    position: fixed;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    z-index: 2000;
+    padding: 1.2rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* MAIN */
+  .main {
+    padding: 1.5rem;
+  }
+
+  /* FORM */
+  .product-form {
+    padding: 1.3rem;
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    background: var(--color-white);
+    width: 100%;
+  }
+
+  .field__input {
+    width: 100%;
+  }
+
+  .product-form__actions {
+    flex-direction: column;
+  }
+
+  .product-form__button {
+    width: 100%;
+  }
+
+  /* TABLE */
+  .table__container {
+    padding: 1.3rem;
+    border-radius: var(--radius);
+    background: var(--color-white);
+    box-shadow: var(--shadow);
+  }
+
+  .table__element {
+    min-width: 540px; /* necesario para scroll horizontal */
+  }
+
+  .table__scroll {
+    overflow-x: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  .table__head th,
+  .table__body td {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN — MOBILE SMALL
+   <= 480px
+============================================================ */
+@media (max-width: 480px) {
+
+  .main {
+    padding: 1rem;
+  }
+
+  .product__title {
+    font-size: 1.5rem;
+  }
+
+  .product-form {
+    padding: 1rem;
+  }
+
+  .table__container {
+    padding: 1rem;
+  }
+
+  .table__element {
+    min-width: 480px;
+  }
+
+  .product-form__button {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
 }
 
 
