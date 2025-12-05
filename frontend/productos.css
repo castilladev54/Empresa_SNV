@@ -163,11 +163,111 @@ body.dark-mode {
   border-radius: 0.3rem;
 }
 
-.menu-link i{
-    font-size: 1.35rem;
-    padding: 0 0.6rem;
+.menu-item:hover .menu-link,
+.sub-menu .sub-menu-link:hover,
+.menu-item.active .menu-link {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
 }
 
-.menu-link i:last-child {
-
+.menu-link i {
+  font-size: 1.35rem;
+  padding: 0 0.6rem;
 }
+
+.menu-item.sub-menu-toggle .menu-link i:last-child {
+  transform: rotate(180deg);
+}
+
+.menu-link span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.sub-menu {
+  height:0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.sub-menu .sub-menu-link {
+  border: 2px solid red;
+  display: flex;
+  margin-left: 2.5rem;
+  padding: 0.55rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: 0.3rem;
+}
+
+.sub-menu::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0.07rem;
+  margin-left: 1.4rem;
+  background-color: var(--color-border);
+}
+
+.footer {
+  border: 2px solid;
+  width: 100%;
+  padding: 1rem 0;
+  box-shadow: 0 -0.02rem 0 0 var(--color-border);
+}
+
+.user {
+  border: 2px solid;
+  display: flex;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.user-img {
+  border: 2px solid;
+  display: flex;
+  margin: 0 0.7rem 0 0.35rem;
+}
+
+.user-img img {
+  border: 2px solid;
+  width: 2.2rem;
+  height: 2.2rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-data {
+  border:2px solid;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.user-data .name {
+  border: 2px solid red;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.user-data .email {
+  border: 2px solid red;
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+}
+
+.user-icon {
+  border: 2px solid red;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--color-text-secondary);
+}
+
+
+
