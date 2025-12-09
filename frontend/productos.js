@@ -1,13 +1,13 @@
 const sideBar = document.getElementById("sidebar");
 const menuBtn = document.getElementById("menu-btn");
 const menuItemDropDown = document.querySelectorAll(".menu-item-dropdown");
-const menusItemsStatic = document.querySelectorAll(".menu-item-static");
+const menuItemsStatic = document.querySelectorAll(".menu-item-static");
 
-menusItemsStatic.forEach((menuItem) => {
+menuItemsStatic.forEach((menuItem) => {
   menuItem.addEventListener("mouseenter", () => {
     if (!sideBar.classList.contains("minimize")) return;
 
-    menusItemsStatic.forEach((item) => {
+    menuItemDropDown.forEach((item) => {
       const otherSubmenu = item.querySelector(".sub-menu");
       if (otherSubmenu) {
         item.classList.remove("sub-menu-toggle");

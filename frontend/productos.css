@@ -39,6 +39,10 @@ body {
   transition: width 0.5s ease;
 }
 
+.sidebar.minimize{
+  width: 4.94rem;
+}
+
 /**header**/
 .header {
   width: 100%;
@@ -61,8 +65,16 @@ body {
   transition: right 0.3s ease;
 }
 
+.sidebar.minimize .menu-btn{
+  right: -2.2rem;
+}
+
 .menu-btn i {
   font-size: 1rem;
+}
+
+.sidebar.minimize .menu-btn i{
+  transform: rotate(180deg);
 }
 
 .brand {
@@ -87,6 +99,7 @@ body {
 
 .menu-container {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   height: 100%;
@@ -106,6 +119,15 @@ body {
 .search:hover {
   box-shadow: 0 0 0 1px var(--color-text-primary);
 }
+
+.sidebar.minimize .search{
+  box-shadow: none;
+}
+
+.sidebar.minimize .search:hover{
+  background-color: var(--color-bg);
+}
+
 
 .search i {
   font-size: 1.35rem;
@@ -155,8 +177,17 @@ body {
   padding: 0 0.8rem;
 }
 
+.menu-item.sub-menu-toggle .menu-link i:last-child {
+  transform: rotate(180deg);
+}
+
 .menu-link i:last-child {
   margin-left: auto;
+  transition: transform 0.3 ease;
+}
+
+.sidebar.minimize .menu-link i:last-child{
+  display: none;
 }
 
 .menu-link span {
@@ -165,10 +196,35 @@ body {
   margin-top: 0.4rem;
 }
 
+.sidebar.minimize .menu-item:hover,
+.sidebar.minimize .menu-item.sub-menu-toggle{
+  overflow: visible;
+}
+
+.sidebar.minimize .menu-item:hover span,
+.sidebar.minimize .menu-item.sub-menu-toggle span{
+  position: absolute;
+  left: 5.2rem;
+  padding: 0.5rem;
+  background-color: var(--color-tooltip-bg);
+  color: var(--color-tooltip-text);
+  transition: all 0.3s ease;
+  border-radius: 0.4rem;
+}
+
 .sub-menu {
   position: relative;
   height: 0;
   transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.minimize .sub-menu{
+  position: absolute;
+  left: 5.5rem;
+  background-color: var(--color-surface);
+  border-radius: 0.2rem;
+  margin-top: 0.2rem;
 }
 
 .sub-menu .sub-menu-link {
@@ -194,6 +250,14 @@ body {
   width: 0.07rem;
   margin-left: 1.4rem;
   background-color: var(--color-border);
+}
+
+.sidebar.minimize .sub-menu::before{
+  width: 0;
+}
+
+.sidebar.minimize .sub-menu a{
+  margin: 0 0.5rem;
 }
 
 .footer {
