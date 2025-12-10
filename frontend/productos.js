@@ -1,11 +1,28 @@
-const sideBar = document.getElementById("sidebar");
+const sidebar = document.getElementById("sidebar");
 const menuBtn = document.getElementById("menu-btn");
 const menuItemDropDown = document.querySelectorAll(".menu-item-dropdown");
 const menuItemsStatic = document.querySelectorAll(".menu-item-static");
+const sidebarBtn = document.getElementById("sidebar-btn");
+const darkMode =document.getElementById("dark-mode-btn");
+
+darkMode.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+})
+
+function checkWindowsSize(){
+  sidebar.classList.remove("minimize");
+}
+
+checkWindowsSize();
+window.addEventListener("resize", checkWindowsSize);
+
+sidebarBtn.addEventListener("click", () =>{
+  document.body.classList.toggle("sidebar-hidden");
+});
 
 menuItemsStatic.forEach((menuItem) => {
   menuItem.addEventListener("mouseenter", () => {
-    if (!sideBar.classList.contains("minimize")) return;
+    if (!sidebar.classList.contains("minimize")) return;
 
     menuItemDropDown.forEach((item) => {
       const otherSubmenu = item.querySelector(".sub-menu");
@@ -45,5 +62,5 @@ menuItemDropDown.forEach((menuItem) => {
 });
 
 menuBtn.addEventListener("click", () => {
-  sideBar.classList.toggle("minimize");
+  sidebar.classList.toggle("minimize");
 });
