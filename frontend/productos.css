@@ -645,11 +645,13 @@ body.dark-mode .dark-mode-btn i:first-child {
 .edit {
   background-color: var(--color-primary);
   color: var(--color-text-primary);
+  font-weight: 500;
+  cursor: pointer;
 }
 .edit:hover {
-  background: #0955f9;
+  background: #0036ab;
   color: var(--color-text-primary);
-  cursor: pointer;
+  
 }
 
 /* DELETE */
@@ -657,10 +659,11 @@ body.dark-mode .dark-mode-btn i:first-child {
   color: var(--color-text-primary);
   background-color: #d62828;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .delete:hover {
-  background: #d62828;
+  background: #f50202;
   color: var(--color-text-primary);
 }
 
