@@ -58,7 +58,7 @@
               <i class="bi bi-arrow-down"></i>
             </a>
             <ul class="sub-menu">
-              <li><a href="#" class="sub-menu-link">ProductO</a></li>
+              <li><a href="#" class="sub-menu-link">Productos</a></li>
               <li><a href="#" class="sub-menu-link">Categoria</a></li>
               <li><a href="#" class="sub-menu-link">Punto de Venta</a></li>
             </ul>
@@ -116,7 +116,113 @@
     </div>
 
     <main>
-      <h1>Sidebar</h1>
+      <section class="product" aria-labelledby="product-title">
+        <h2 id="product-title" class="product__title">Productos</h2>
+
+        <form
+          id="form-productos"
+          class="product-form"
+          role="form"
+          aria-describedby="product-form-desc"
+        >
+          <div class="field field--name">
+            <label class="field__label" for="nombre">Nombre del producto</label>
+            <input
+              class="field__input"
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Nombre del producto"
+              required=""
+            />
+          </div>
+
+          <div class="field field--price">
+            <label class="field__label" for="precio-dolares"
+              >Precio (USD)</label
+            >
+            <input
+              class="field__input"
+              id="precio-dolares"
+              name="precio-dolares"
+              type="number"
+              placeholder="Precio en USD"
+              min="0"
+              step="0.01"
+              required=""
+            />
+          </div>
+
+          <div class="product-form__actions">
+            <button
+              class="product-form__button product-form__button--add"
+              type="s"
+              id="btn-agregar"
+            >
+              Agregar
+            </button>
+
+            <button
+              class="product-form__button product-form__button--cancel"
+              type="button"
+              id="btn-cancelar"
+              hidden=""
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+
+        <!-- Campo reutilizable: exchange-rate como modificador del bloque field -->
+        <div class="field field--exchange-rate">
+          <label class="field__label" for="tasa-cambiaria"
+            >Tasa cambiaria (Bs/USD)</label
+          >
+          <input
+            class="field__input field__input--numeric"
+            id="tasa-cambiaria"
+            name="tasa-cambiaria"
+            type="number"
+            value="8.5"
+            min="0"
+            step="0.01"
+          />
+        </div>
+      </section>
+
+      <section class="table" aria-labelledby="table-title">
+        <h1 id="table-title" class="visually-hidden">Listado de productos</h1>
+
+        <div class="table__container">
+          <div class="menu-container">
+            <div class="search">
+              <i class="bi bi-search"></i>
+              <input type="text" id="buscar" placeholder="Buscar Producto..." />
+            </div>
+          </div>
+
+          <div class="table__scroll">
+            <table
+              class="table__element"
+              role="table"
+              aria-describedby="table-desc"
+            >
+              <thead class="table__head">
+                <tr class="table__row table__row--head">
+                  <th class="table__cell" scope="col">Nombre</th>
+                  <th class="table__cell" scope="col">Precio USD</th>
+                  <th class="table__cell" scope="col">Precio Bs</th>
+                  <th class="table__cell" scope="col">Acciones</th>
+                </tr>
+              </thead>
+
+              <tbody class="table__body" id="tabla-productos">
+                <!-- filas generadas dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="productos.js"></script>
