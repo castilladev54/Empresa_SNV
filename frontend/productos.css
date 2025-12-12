@@ -614,7 +614,7 @@ body.dark-mode .dark-mode-btn i:first-child {
   padding: 0.9rem 1rem;
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--color-text-primary);
+  color: #fff;
   position: sticky; /* Toggles between relative and fixed */
   top: 0;           /* Sticks to the top edge of the viewport when reached */
   padding: 10px;
@@ -644,19 +644,19 @@ body.dark-mode .dark-mode-btn i:first-child {
 /* EDIT */
 .edit {
   background-color: var(--color-primary);
-  color: var(--color-text-primary);
+  color: var(--color-bg);
   font-weight: 500;
   cursor: pointer;
 }
 .edit:hover {
   background: #0036ab;
-  color: var(--color-text-primary);
+  color: #fff;
   
 }
 
 /* DELETE */
 .delete {
-  color: var(--color-text-primary);
+  color: var(--color-bg);
   background-color: #d62828;
   cursor: pointer;
   font-weight: 500;
@@ -664,6 +664,6 @@ body.dark-mode .dark-mode-btn i:first-child {
 
 .delete:hover {
   background: #f50202;
-  color: var(--color-text-primary);
+   color: #fff;
 }
 
