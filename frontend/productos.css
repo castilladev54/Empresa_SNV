@@ -412,6 +412,7 @@ body.dark-mode .dark-mode-btn i:first-child {
   .sidebar {
     transform: translateX(-100%);
     transition: trasnform 0.3s ease;
+    z-index: 1002;
   }
   .sidebar-btn {
     display: flex;
@@ -467,6 +468,7 @@ body.dark-mode .dark-mode-btn i:first-child {
     color: #fff;
     cursor: pointer;
   }
+
 }
 
 /**Main productos**/
@@ -665,5 +667,25 @@ body.dark-mode .dark-mode-btn i:first-child {
 .delete:hover {
   background: #f50202;
    color: #fff;
+}
+
+@media (max-width: 700px) {
+  .product-form {
+    flex-direction: column;
+  }
+
+  .product-form__actions {
+    flex-direction: column;
+  }
+
+  .table__element {
+    min-width: 100%;
+    font-size: 0.8rem;
+  }
+
+  .table__head th,
+  .table__body td {
+    padding: 0.5rem;
+  }
 }
 

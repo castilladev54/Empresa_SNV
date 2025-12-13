@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../anon-ecommerce-website"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "anon-ecommerce-website"
+	}
+}
